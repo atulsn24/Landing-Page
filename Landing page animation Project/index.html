@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Landing Page Animation</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>	
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+		
+		
+	</head>
+	<body>
+
+
+		<div class="header"></div>
+
+        <div class="container">
+            <div class="text-wrapper">
+                <div class="text-1 text">less is more</div>
+                <div class="text-2 text">less is more</div>
+                <div class="text-3 text">less is more</div>
+                <div class="text-4 text">less is more</div>
+                <div class="text-5 text">less is more</div>
+                <div class="text-6 text">less is more</div>
+                <div class="text-7 text">less is more</div>
+                <div class="text-8 text">less is more</div>
+                <div class="text-9 text">less is more</div>
+                <div class="text-10 text">less is more</div>
+                <div class="text-11 text">less is more</div>
+            </div>
+        </div>
+
+
+		<div class="menu-open">menu</div>
+		<div class="nav-container">
+			<div class="menu-close">close</div>
+			<div class="socials">
+				<span>facebook</span>
+				<span>instagram</span>
+			</div>
+			<nav class="menu">
+				<div class="menu__item">
+					<a class="menu__item-link">Home</a>
+					
+					<div class="marquee">
+						<div class="marquee__inner">
+							<span>Home - Home - Home - Home - Home - Home - Home</span>
+						</div>
+					</div>
+				</div>
+				<div class="menu__item">
+					<a class="menu__item-link">Showcase</a>
+					
+					<div class="marquee">
+						<div class="marquee__inner">
+							<span>Showcase - Showcase - Showcase - Showcase - Showcase - Showcase - Showcase</span
+							>
+						</div>
+					</div>
+				</div>
+				<div class="menu__item">
+					<a class="menu__item-link">About</a>
+					
+					<div class="marquee">
+						<div class="marquee__inner">
+							<span>About - About - About - About - About - About - About</span>
+						</div>
+					</div>
+				</div>
+				<div class="menu__item">
+					<a class="menu__item-link">Contact</a>
+					
+					<div class="marquee">
+						<div class="marquee__inner">
+							<span
+								>Contact - Contact - Contact - Contact - Contact - Contact -
+								Contact</span
+							>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<script>
+			var t1 = new TimelineMax({ paused: true });
+
+			t1.to(".nav-container", 1, {
+				left: 0,
+				ease: Expo.easeInOut,
+			});
+
+			t1.staggerFrom(
+				".menu > div",
+				0.8,
+				{ y: 100, opacity: 0, ease: Expo.easeOut },
+				"0.1",
+				"-=0.4"
+			);
+
+			t1.staggerFrom(
+				".socials",
+				0.8,
+				{ y: 100, opacity: 0, ease: Expo.easeOut },
+				"0.4",
+				"-=0.6"
+			);
+
+			t1.reverse();
+			$(document).on("click", ".menu-open", function () {
+				t1.reversed(!t1.reversed());
+			});
+			$(document).on("click", ".menu-close", function () {
+				t1.reversed(!t1.reversed());
+			});
+		</script>
+
+	</body>
+</html>
